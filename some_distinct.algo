@@ -1,0 +1,54 @@
+
+// [1 , 2 , 5] , [ 1 ,4 , 2] =>  9  
+ // 5   + 4 = 9 
+
+// {
+//     1 : 1 ,
+//     2 : 2 , 
+//     4 : 1 , 
+//     5 : 1 ,
+// }
+
+
+ALGORITHM some_distinct
+VAR
+arr1 ,arr2 : ARRAY_OF INTEGER[10] ; 
+numbers : ARRAY_OF INTEGER[20]
+dict := HASH_TABLE<INTEGER,INTEGER> ;
+i , count :INTEGER ;
+sum : INTEGER := 0 ;
+BEGIN
+   // first read the elements 
+
+   //insert array in hashtable 
+FOR i FROM 0 TO arr1.length -1   DO
+   IF (dict.lookup(arr1[i])) THEN
+      count := dict.get(arr1[i])
+      dict.insert(arr1[i] , count + 1)
+   ELSE
+       dict.insert(arr1[i] , 1 )
+   END_IF
+END_FOR
+
+
+FOR i FROM 0 TO arr2.length -1   DO
+   IF (dict.lookup(arr2[i])) THEN
+      count := dict.get(arr2[i])
+      dict.insert(arr2[i] , count + 1)
+   ELSE
+       dict.insert(arr2[i] , 1 )
+   END_IF
+END_FOR
+
+//get the sum of distinct elements 
+numbers:= getKeys(dict) 
+FOR i FROM 0 TO numbers.length -1    DO
+    IF (dict.get(numbers[i]) = 1 ) THEN
+        sum := sum + numbers[i]
+    END_IF
+END_FOR 
+
+Write(sum)
+
+
+END

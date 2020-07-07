@@ -1,0 +1,52 @@
+ALGORITHM stack
+VAR
+stack : stack ; 
+peek_value:CHAR ;
+c : CHAR : = "" ;
+wrong:BOOLEAN ;
+//"(a + b )#"
+//push , pop 
+//peek , isEmpty
+BEGIN
+    WHILE ( c <> "#" AND NOT wrong ) DO
+        Read(c)
+        SWITCH (c) DO
+            case "[" : 
+            case  "{": 
+            case  "(": 
+            stk.push(c);
+            peek_value := stk.peek() // peek dont affect the stack 
+            Write(peek_value)
+
+            case "]" : 
+            IF (stk.peek() = "[") THEN
+            stk.pop() ; 
+            ELSE
+              wrong : = TRUE ; 
+            END_IF
+            BREAK ; 
+
+            case ")" : 
+            IF (stk.peek() = "(") THEN
+               stk.pop() ;
+            ELSE
+                wrong : = TRUE ; 
+            END_IF
+             BREAK ; 
+              case "}" : 
+            IF (stk.peek() = "{") THEN
+               stk.pop() ;
+            ELSE
+                wrong : = TRUE ; 
+            END_IF
+             BREAK ; 
+             default : 
+             BREAK ;
+
+        END_SWITCH
+    END_WHILE
+    IF(stk.isEmpty() AND NOT wrong) THEN 
+    write ("Empty stack , so barcket match")
+    ELSE 
+    Write("stack ins not empty , so barkets dont match ")
+END

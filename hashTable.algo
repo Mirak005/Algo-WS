@@ -1,0 +1,17 @@
+
+
+ALGORITHM hash_table
+VAR 
+  dict : HASH_TABLE<INTEGER,STRING>
+
+BEGIN
+  dict.insert(0 , "zero")
+  dict.insert(1 , "one")
+
+  dict.lookup(0) // TRUE or FALSE
+ 
+  dict.get(1) // retrun 'one' 
+ dict.delete(1)
+ //get keys  getKeys(dict) =>   [key1 , key 2 , ...]
+ //get values  getValue(dict) => [val1 , val2, ... ]
+END

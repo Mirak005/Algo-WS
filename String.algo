@@ -1,0 +1,32 @@
+ALGORITHM string
+VAR
+    str1 ,str2 : STRING[50]
+    i :INTEGER ; 
+    notEqual : BOOLEAN ; 
+BEGIN
+//enter two strings 
+Write("Enter two Strings") ; 
+ Read(str1 , str2) ; 
+ 
+ //compare length 
+ IF (str1.length <> str2.length) THEN
+    Write("The strigs are not equal ") ; 
+ ELSE
+    str1 := toUpper(str1) ;
+    str2:= toUpper(str2) ;
+    FOR i FROM 0 TO str1.length-1 
+    notEqual : = false ; 
+        IF (str1[i] <> str2[i]) THEN
+        notEqual := TRUE ;
+         BREAK ; 
+        END_IF
+        IF (notEqual = true) THEN
+            Write("The Strings are not equal")
+            ELSE 
+            Write("The Strings are equal")
+        END_IF
+    END_FOR
+ END_IF
+
+
+END

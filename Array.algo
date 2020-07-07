@@ -1,0 +1,17 @@
+ALGORITHM array
+VAR
+    tab  : ARRAY_OF INTEGER[5];
+    pos , elt , i , j : INTEGER
+BEGIN
+FOR i FROM 0 TO tab.length-1
+    Read(tab[i])
+END_FOR
+
+j:= tab.length -1
+WHILE (j >= pos) DO
+    tab[j+1] := tab[j] 
+    j:= j -1 
+END_WHILE
+tab[pos] = elt
+
+END

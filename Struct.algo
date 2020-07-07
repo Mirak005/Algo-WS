@@ -1,0 +1,33 @@
+ALGORITHM struct
+VAR
+    Person :	STRUCT
+                        name : STRING;
+                        age : INTEGER;
+                        cin : INTEGER ;
+                    END_STRUCT
+    tab  : ARRAY_OF Person[10];
+    i : INTEGER ; 
+    name : String[] ;
+    find_cin :INTEGER ;  
+   
+BEGIN
+   Write("Enter the array person")
+   Read(tab)
+   Write("enter the cin ")
+   read(find_cin)
+
+   //Search the name of the owner to cin  
+FOR i FROM 0  TO tab.length-1   DO
+   IF (tab[i].cin = find_cin) THEN
+       name := tab[i].name ; 
+       BREAK ;
+   END_IF  
+  
+
+END_FOR
+IF(isEmpty(name)) THEN 
+Write("There no user with this cin number")
+ELSE 
+Write("the user is " , name)
+
+END
