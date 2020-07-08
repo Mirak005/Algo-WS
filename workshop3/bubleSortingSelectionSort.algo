@@ -1,0 +1,58 @@
+PROCEDURE swap(VAR x:INTEGER , VAR y:INTEGER)
+VAR
+   temp:INTEGER ;
+BEGIN
+   temp:=x ;
+   x := y ;
+   y :temp ; 
+END
+
+PROCEDURE bubbleSort(tab: ARRAY_OF INTEGER)
+VAR
+    i , j :=INTEGER ; 
+BEGIN
+    FOR i FROM 0 TO tab.length-1   DO
+       FOR j FROM 0 TO tab.length-1 - i   DO
+           IF (tab[j]>tab[j+1]) THEN
+               swap(tab[i] , tab[j+1])
+           END_IF
+       END_FOR
+    END_FOR
+END
+
+
+
+PROCEDURE bubbleSort2(tab: ARRAY_OF INTEGER)
+VAR
+   i :INTEGER ;
+   swaped:BOOLEAN ; 
+BEGIN
+   DO 
+   swaped = false 
+   FOR i FROM 0 TO tab.length -1  DO
+       IF (tab[i]>tab[i+1]) THEN
+          swap(tab[i],tab[i+1])
+          swaped = TRUE 
+       END_IF
+   END_FOR
+
+   WHILE (swaped = TRUE)
+       
+   END_WHILE
+END
+
+
+PROCEDURE Selection_Sort(tab: ARRAY_OF INTEGER)
+VAR
+ i , j , min_idx :INTEGER ; 
+BEGIN
+ FOR i FROM 0 TO tab.length-1   DO
+     min_idx:= i ; 
+     FOR j FROM i +1 TO tab.length-1   DO
+        IF (tab[j]<tab[min_idx] ) THEN
+            min_idx := j 
+        END_IF
+     END_FOR
+     swap(tab[min_idx] , tab[i])
+ END_FOR
+END

@@ -1,0 +1,28 @@
+ALGORITHM linked_list
+VAR
+    list :	STRUCT
+                        data : STRING;
+                        next : ^list;
+                    END_STRUCT
+
+
+    first : ^list := NULL ;
+    second : ^list :=NUll 
+    p: ^List :=NULL //pointer
+    c:CHAR;
+BEGIN
+//create(list) , free(list)
+Read(c)
+REad(c2)
+//allocate memory  
+p:= create(list)
+p.^data : = c 
+p^.next := NULL 
+
+first := p 
+p^.= c2 
+p^.next = NULL 
+second:=p 
+first.^next = second 
+   
+END

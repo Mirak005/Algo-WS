@@ -1,0 +1,69 @@
+// input val , arr => true ou false [1 , 10 ,45 , 23 , 58 ]
+
+FUNCTION is_in_array(tab:ARRAY_of INTEGER , val :INTEGER) : BOOLEAN //O(n = tab.length)
+VAR
+    i : INTEGER 
+BEGIN
+   FOR i FROM 0 TO tab.length-1   DO
+       IF (val=tab[i]) THEN
+          RETURN TRUE 
+       END_IF
+   END_FOR
+   RETURN FALSE 
+END
+
+
+FUNCTION is_in_arrays(tab , tab2 :ARRAY_of INTEGER , val :INTEGER) : BOOLEAN //O(2n) === O(n)
+VAR
+    i , j : INTEGER 
+
+BEGIN
+   FOR i FROM 0 TO tab.length-1   DO
+       IF (val=tab[i]) THEN 
+          RETURN TRUE 
+       END_IF
+   END_FOR
+
+    FOR j FROM 0 TO tab2.length-1   DO
+       IF (val=tab[j]) THEN 
+          RETURN TRUE 
+       END_IF
+   END_FOR
+   RETURN FALSE 
+END
+
+
+// [ 1 , 5 , 6 ]
+FUNCTION isDouble(tab :ARRAY_of INTEGER) :BOOLEAN // O(n² = tab.length*tab.length / n*m)
+VAR
+   i,j : INTEGER 
+BEGIN
+   FOR i FROM 0 TO tab.length -1  DO
+      FOR j FROM 0 TO tab.length-1   DO
+        IF (tab[i] = tab[j] AND i <> j ) THEN
+            RETURN TRUE 
+        END_IF
+
+      END_FOR
+   END_FOR
+   RETURN FALSE 
+END
+
+
+
+FUNCTION function_name(tab: ARRAY_OF INTEGER) : BOOLEAN
+VAR
+    i,j :INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 DO // O(n)
+        FOR j FROM i TO n-1   DO //o(n-i)=>   o(n)o(n-1)o(n-2) .... o(1) =>O(log n) 
+            IF (i<>j AND tab[i]=tab[j]) THEN 
+                RETURN true
+            END_IF
+        END_FOR
+    END_FOR
+    RETURN false
+END
+
+
+// o(n^2)>o(n log n)>o(n)
